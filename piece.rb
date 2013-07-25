@@ -2,17 +2,24 @@
 require  "./checker_board"
 require "colorize"
 
-TOKENS = { :standard => "O", :king => 'K'}
+p "loading piece..."
+
+TOKENS = { :standard => "✪", :king => "♛" }
 
 
 class Piece
   attr_accessor :pos
   attr_reader :color, :king
   
-  def initialize(pos)
+  def initialize(pos, color, king = false)
     @pos = pos
+    @color = color
+    @king = king
   end
   
+  def token
+    return TOKENS[:king] if king
+    TOKENS[:standard]
+  end
 end
 
-p "piece d"

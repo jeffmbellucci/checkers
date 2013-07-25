@@ -5,6 +5,7 @@ require 'colorize'
 p "Board loading..."
 
 class Board
+  LETTERS = ("A".."H").to_A
   
   def initialize
     init_board
@@ -18,24 +19,29 @@ class Board
         @board[row] += [nil]
       end
     end
-    @board[6][3] = :h 
+    @board[6][3] = Piece.new([6, 3], :white, true) 
   end
   
+  
   def draw_board
+    8.times { |i| print " #{i}" } # print " #{LETTERS[i]}"}
     8.times do |row|
       puts"\n"
+      print row
       8.times do |col|
-        draw_square(@board, row, col) 
+        draw_square(col, row) 
       end
     end
   end
     
-  def  draw_square(board, row, col)
-    if @board[col][row].nil?
-      print "  ".colorize(:background => :red) if (row + col).even?
-      print "  ".colorize(:background => :blue) if (row + col).odd?
+  def  draw_square(row, col)
+    back = :red if (row + col).even?
+    back = :blue if (row + col).odd?
+    if @board[row][col].nil?
+      print "  ".colorize(:background => back)
     else 
-      print " #{@board[col][row]}"
+      color, token = @board[row][col].color, @board[row][col].token
+      print "#{token} ".colorize(:color => color).colorize(:background => back)
     end
   end
   

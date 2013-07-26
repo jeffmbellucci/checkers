@@ -4,7 +4,7 @@ require "colorize"
 
 p "loading piece..."
 
-TOKENS = { :standard => "✪", :king => "♛" }
+TOKENS = { :standard => "◉", :king => "♛" }
 
 
 class Piece
@@ -21,5 +21,6 @@ class Piece
     return TOKENS[:king] if king
     TOKENS[:standard]
   end
+
 end
 

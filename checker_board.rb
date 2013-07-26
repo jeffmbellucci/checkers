@@ -26,7 +26,7 @@ class Board
       if piece && piece.valid_move?(finish, self)
         move!(start, finish)
       else
-        puts "Cant make that move!!!"
+        puts "Cant make that move!!!"  #add message for nil piece
       end
       
       

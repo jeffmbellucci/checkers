@@ -9,7 +9,7 @@ module Interface
   
   def get_user_move
     begin
-      puts "\n Pick a piece to move (eg. a2)"
+      puts "\nPick a piece to move (eg. a2)"
       input = gets.chomp.upcase
       start_pos = validate(input)
     rescue

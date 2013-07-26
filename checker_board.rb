@@ -31,8 +31,14 @@ class Board
       draw_board
       turns += 1
       move = get_user_move
-      
-      move!(move.first, move.last)
+      start = move.first
+      finish = move.last
+      piece = get_piece_at(start)
+      if piece && piece.valid_move?(finish, self)
+        move!(start, finish)
+      else
+        puts "Cant make that move!!!"
+      end
       
       
       break if turns > 5
@@ -40,6 +46,11 @@ class Board
     
   end
   
+  def get_piece_at(pos)
+    x, y = pos
+    @board[x][y]
+  end
+    
   
   def move!(start, finish)
     from_x, from_y = start
@@ -53,7 +64,7 @@ class Board
   
   
        
-  
+  private
 
   def fill_board
     8.times do |row| 

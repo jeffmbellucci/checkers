@@ -21,6 +21,14 @@ class Piece
     return TOKENS[:king] if king
     TOKENS[:standard]
   end
+  
+  def valid_move?(end_pos, board)
+    to_x, to_y = end_pos
+    delta_x = (to_x - @pos.first).abs
+    delta_y = (to_y - @pos.last).abs
+    return false unless delta_x == delta_y
+    true
+  end
 
 end
 

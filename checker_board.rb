@@ -14,17 +14,6 @@ class Board
   end
   
   
-  def draw_board
-    8.times { |i| print " #{LETTERS[i]}"}
-    8.times do |row|
-      puts"\n"
-      print row
-      8.times do |col|
-        draw_square(col, row) 
-      end
-    end
-  end
-  
   def play
     turns = 0
     loop do 
@@ -74,6 +63,17 @@ class Board
         elsif row > 4 && (row + col).even?
           @board[col][row] = Piece.new([col, row], :black)
         end
+      end
+    end
+  end
+  
+  def draw_board
+    8.times { |i| print " #{LETTERS[i]}"}
+    8.times do |row|
+      puts"\n"
+      print row
+      8.times do |col|
+        draw_square(col, row) 
       end
     end
   end

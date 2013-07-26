@@ -17,7 +17,7 @@ module Interface
       retry
     end
     begin
-      puts "Where to? (eg. a2)"
+      puts "Where to? (eg. b3)"
       input = gets.chomp.upcase
       end_pos = validate(input)
     rescue

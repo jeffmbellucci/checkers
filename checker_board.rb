@@ -29,7 +29,6 @@ class Board
         puts "Cant make that move!!!"  #add message for nil piece
       end
       
-      
       break if turns > 5
     end
     
@@ -40,7 +39,6 @@ class Board
     @board[x][y]
   end
     
-  
   def move!(start, finish)
     from_x, from_y = start
     to_x, to_y = finish

@@ -18,7 +18,7 @@ class Piece
   end
   
   def token
-    return TOKENS[:king] if king
+    return TOKENS[:king] if @king
     TOKENS[:standard]
   end
   
